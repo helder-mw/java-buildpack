@@ -15,5 +15,5 @@
 
 # Configuration for the Luna Security Provider framework
 ---
-version: 1.2.0
+version: 1.+
 repository_root: https://repo.dyadicsec.com/cust/pcf
