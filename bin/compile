@@ -29,7 +29,8 @@ JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exceptio
 
 puts ("compile finished")
 
+$stdout.sync = true
 puts ("File listing:")
 # puts Dir['**/*.*']
 require 'find'
-Find.find('.') { |f| puts f }
+Find.find('.') { |f| puts File.absolute_path(f) }
