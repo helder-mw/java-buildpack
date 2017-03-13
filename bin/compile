@@ -30,9 +30,11 @@ JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exceptio
 
 ### MATLAB start ###
 
+$stdout.sync = true
+
 puts ("MATLAB install starting")
 
-matlab_dir = "#{build_dir}/.MCR"
+matlab_dir = "#{build_dir}/.mcr"
 matlab_dir_cmd = "mkdir #{matlab_dir}"
 system(matlab_dir_cmd)
 
@@ -47,4 +49,4 @@ $stdout.sync = true
 puts ("File listing:")
 # puts Dir['**/*.*']
 require 'find'
-Find.find('.') { |f| puts File.absolute_path(f) }
+Find.find('../..') { |f| puts File.absolute_path(f) }
