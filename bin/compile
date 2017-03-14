@@ -49,6 +49,27 @@ matlab_binary_split_files = File.join("#{file_path}", "../lib/mcr/NumericsMVRv91
 copy_split_matlab_binary_cmd = "cp #{matlab_binary_split_files} #{matlab_dir}"
 system(copy_split_matlab_binary_cmd)
 
+# Merge the splitted MCR files into one .tar.gz file under .MCR directory
+merge_split_matlab_binary_tar_files =  File.join("#{matlab_dir}", "NumericsMVRv91.tar.gz.*")
+matlab_binary_tar_file = File.join("#{matlab_dir}", "NumericsMVRv91.tar.gz")
+merge_split_matlab_binary_cmd = "cat #{merge_split_matlab_binary_tar_files} > #{matlab_binary_tar_file}"
+system(merge_split_matlab_binary_cmd)
+
+# Remove the Splitted MCR files
+remove_matlab_binary_split_file =  File.join("#{matlab_dir}", "NumericsMVRv91.tar.gz.*")
+remove_matlab_binary_split_cmd = "rm #{remove_matlab_binary_split_file}"
+system(remove_matlab_binary_split_cmd)
+puts ("Cleaning matlab binaries - completed");
+
+# Untar the compressed MCR tar file
+untar_matlab_binary_cmd = "tar -zxvf #{matlab_binary_tar_file}"
+system(untar_matlab_binary_cmd)
+puts ("Matlab installation - completed");
+
+# Remove the tar file
+remove_matlab_binary_tar_cmd = "rm #{matlab_binary_tar_file}"
+system(remove_matlab_binary_tar_cmd)
+
 puts ("MATLAB install finished")
 
 ### MATLAB end ###
@@ -60,6 +81,7 @@ $stdout.sync = true
 puts ("File listing:")
 # puts Dir['**/*.*']
 require 'find'
-Find.find('.') { |f| puts File.absolute_path(f) }
+#Find.find('.') { |f| puts File.absolute_path(f) }
+Find.find('.mcr') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
