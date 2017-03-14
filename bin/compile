@@ -43,11 +43,11 @@ matlab_dir_cmd = "mkdir #{matlab_dir}"
 system(matlab_dir_cmd)
 
 # Copy splitted MCR files into .MCR directory
-matlab_binary_split_files = File.join("#{file_path}", "../java-buildpack/lib/mcr/NumericsMVRv91.tar.gz.*")
-puts "matlab_binary_split_files: #{matlab_binary_split_files}"
+matlab_binary_split_files = File.join("#{file_path}", "../lib/mcr/NumericsMVRv91.tar.gz.*")
+#puts "matlab_binary_split_files: #{matlab_binary_split_files}"
 #xLibs_dir = File.join("#{file_path}", "../matlab-lib/xLibs")
-#copy_split_matlab_binary_cmd = "cp #{matlab_binary_split_files} #{matlab_dir}"
-#system(copy_split_matlab_binary_cmd)
+copy_split_matlab_binary_cmd = "cp #{matlab_binary_split_files} #{matlab_dir}"
+system(copy_split_matlab_binary_cmd)
 
 puts ("MATLAB install finished")
 
@@ -61,4 +61,5 @@ puts ("File listing:")
 # puts Dir['**/*.*']
 require 'find'
 Find.find('.') { |f| puts File.absolute_path(f) }
-Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
+#Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
+Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
