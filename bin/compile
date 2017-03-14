@@ -23,6 +23,9 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'java_buildpack/buildpack'
 
+file_path=File.expand_path(File.dirname(__FILE__))
+puts "file_path: #{file_path}"
+
 build_dir = ARGV[0]
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s', &:compile)
@@ -34,9 +37,17 @@ $stdout.sync = true
 
 puts ("MATLAB install starting")
 
+# Create .MCR directory
 matlab_dir = "#{build_dir}/.mcr"
 matlab_dir_cmd = "mkdir #{matlab_dir}"
 system(matlab_dir_cmd)
+
+# Copy splitted MCR files into .MCR directory
+matlab_binary_split_files = File.join("#{file_path}", "../java-buildpack/lib/mcr/NumericsMVRv91.tar.gz.*")
+puts "matlab_binary_split_files: #{matlab_binary_split_files}"
+#xLibs_dir = File.join("#{file_path}", "../matlab-lib/xLibs")
+#copy_split_matlab_binary_cmd = "cp #{matlab_binary_split_files} #{matlab_dir}"
+#system(copy_split_matlab_binary_cmd)
 
 puts ("MATLAB install finished")
 
