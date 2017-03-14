@@ -59,10 +59,10 @@ system(merge_split_matlab_binary_cmd)
 remove_matlab_binary_split_file =  File.join("#{matlab_dir}", "NumericsMVRv91.tar.gz.*")
 remove_matlab_binary_split_cmd = "rm #{remove_matlab_binary_split_file}"
 system(remove_matlab_binary_split_cmd)
-puts ("Cleaning matlab binaries - completed");
+#puts ("Cleaning matlab binaries - completed");
 
 # Untar the compressed MCR tar file
-untar_matlab_binary_cmd = "tar -zxvf #{matlab_binary_tar_file}"
+untar_matlab_binary_cmd = "tar -zxvf #{matlab_binary_tar_file} -C #{matlab_dir}"
 system(untar_matlab_binary_cmd)
 puts ("Matlab installation - completed");
 
@@ -82,6 +82,6 @@ puts ("File listing:")
 # puts Dir['**/*.*']
 require 'find'
 #Find.find('.') { |f| puts File.absolute_path(f) }
-Find.find('.mcr') { |f| puts File.absolute_path(f) }
+Find.find('./.mcr') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
