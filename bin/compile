@@ -92,6 +92,8 @@ File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
   file.puts "export PATH=${PATH}:#{matlab_dir}/v91/bin"
   puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
   file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+  puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
+  file.puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
 end
 
 puts ("compile finished")
