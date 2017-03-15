@@ -69,7 +69,7 @@ system(remove_matlab_binary_split_cmd)
 untar_matlab_binary_cmd = "tar -zxf #{matlab_binary_tar_file} -C #{matlab_dir}"
 puts ">>> system: #{untar_matlab_binary_cmd}"
 system(untar_matlab_binary_cmd)
-puts ("Matlab installation - completed");
+#puts ("Matlab installation - completed");
 
 # Remove the tar file
 remove_matlab_binary_tar_cmd = "rm #{matlab_binary_tar_file}"
@@ -81,14 +81,28 @@ puts ("MATLAB install finished")
 ### MATLAB end ###
 
 
+# Setting environment variables in .profile.d script (sourced at dyno startup)
+mkdir -p "$BUILD_DIR"/.profile.d
+profile_d_dir = "#{build_dir}/.profile.d"
+profile_d_dir_cmd = "mkdir #{matlab_dir}"
+puts ">>> system: #{profile_d_dir_cmd}"
+system(profile_d_dir_cmd)
+
+File.open("%{profile_d_dir}/matlab.sh", "a") do |file|
+  puts "export PATH=${PATH}:#{matlab_dir}/v91/bin"
+  file.puts "export PATH=${PATH}:#{matlab_dir}/v91/bin"
+  puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+  file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+end
+
 puts ("compile finished")
 
-$stdout.sync = true
-puts ("File listing:")
+#$stdout.sync = true
+#puts ("File listing:")
 # puts Dir['**/*.*']
-require 'find'
+#require 'find'
 #Find.find('.') { |f| puts File.absolute_path(f) }
-Find.find('.') { |f| puts File.absolute_path(f) if File.directory?(f) }
+#Find.find('.') { |f| puts File.absolute_path(f) if File.directory?(f) }
 #Find.find('./.mcr') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
