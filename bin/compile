@@ -87,7 +87,7 @@ profile_d_dir_cmd = "mkdir #{profile_d_dir}"
 puts ">>> system: #{profile_d_dir_cmd}"
 system(profile_d_dir_cmd)
 
-File.open("%{profile_d_dir}/matlab.sh", "w") do |file|
+File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
   puts "export PATH=${PATH}:#{matlab_dir}/v91/bin"
   file.puts "export PATH=${PATH}:#{matlab_dir}/v91/bin"
   puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
