@@ -101,6 +101,7 @@ puts ("compile finished")
 #$stdout.sync = true
 #puts ("File listing:")
 # puts Dir['**/*.*']
+ puts Dir['**/*.jar']
 #require 'find'
 #Find.find('.') { |f| puts File.absolute_path(f) }
 #Find.find('.') { |f| puts File.absolute_path(f) if File.directory?(f) }
