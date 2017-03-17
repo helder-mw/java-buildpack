@@ -115,4 +115,4 @@ puts ("Environment variables:")
 system("/usr/bin/printenv")
 
 puts ("Contents of catalina.properties:")
-system("cat ./.java-buildpack/tomcat/conf/catalina.properties")
+system("cat #{build_dir}/.java-buildpack/tomcat/conf/catalina.properties")
