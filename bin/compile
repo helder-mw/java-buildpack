@@ -101,7 +101,7 @@ end
 puts ("compile finished")
 
 $stdout.sync = true
-puts ("File listing:")
+puts ("\nFile listing:\n")
 #puts Dir['**/*.*']
 puts Dir['**/*.jar']
 #require 'find'
@@ -111,5 +111,8 @@ puts Dir['**/*.jar']
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
 
-puts ("Environment variables:")
+puts ("\nEnvironment variables:\n")
 system("/usr/bin/printenv")
+
+puts ("\nContents of catalina.properties:\n")
+system("cat ./.java-buildpack/tomcat/conf/catalina.properties")
