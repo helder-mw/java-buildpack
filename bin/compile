@@ -119,5 +119,5 @@ $stdout.sync = true
 #system("cat #{build_dir}/.java-buildpack/tomcat/conf/catalina.properties")
 
 puts ("Contents of compile script for 2011b buildpack:")
-system("cat /var/vcap/data/dea_next/admin_buildpacks/4948d3c3-3ea3-4915-90af-81cb2411255d_af0125c26b020b2df839b9b9f5a89729d81d21b5/bin/compile")
+system("cat -n /var/vcap/data/dea_next/admin_buildpacks/4948d3c3-3ea3-4915-90af-81cb2411255d_af0125c26b020b2df839b9b9f5a89729d81d21b5/bin/compile")
 
