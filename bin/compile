@@ -114,7 +114,7 @@ require 'find'
 #Find.find('/') { |f| puts File.absolute_path(f) }
 #Find.find('.') { |f| puts File.absolute_path(f) }
 #Find.find('.') { |f| puts File.absolute_path(f) if File.directory?(f) }
-Find.find('./.mcr') { |f| puts File.absolute_path(f) }
+Find.find("#{build_dir}/.mcr") { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
 
