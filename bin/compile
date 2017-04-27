@@ -94,8 +94,8 @@ puts ">>> system: #{profile_d_dir_cmd}"
 system(profile_d_dir_cmd)
 
 File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
-  puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime"
-  file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime"
+  puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
+  file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
   puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
   file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
   #puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
