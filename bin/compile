@@ -103,6 +103,7 @@ File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
   puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
   file.puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
 end
+system("chmod 755 #{profile_d_dir}/matlab.sh")
 
 puts ("compile finished")
 
