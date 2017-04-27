@@ -132,5 +132,8 @@ $stdout.sync = true
 
 #puts ("ls -l /tmp/staged/app/.mcr/v91/runtime/glnxa64/libmwmclmcrrt.so.9.1")
 #system("ls -l /tmp/staged/app/.mcr/v91/runtime/glnxa64/libmwmclmcrrt.so.9.1")
-puts ("ls -l /tmp/staged/app/.profile.d/matlab.sh")
-system("ls -l /tmp/staged/app/.profile.d/matlab.sh")
+#puts ("ls -l /tmp/staged/app/.profile.d/matlab.sh")
+#system("ls -l /tmp/staged/app/.profile.d/matlab.sh")
+
+puts ("java -XshowSettings:properties")
+system("java -XshowSettings:properties")
