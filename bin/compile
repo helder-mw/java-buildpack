@@ -94,10 +94,10 @@ puts ">>> system: #{profile_d_dir_cmd}"
 system(profile_d_dir_cmd)
 
 File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
-  puts "export PATH=${PATH}:#{matlab_dir}:#{matlab_dir}/v91/bin"
-  file.puts "export PATH=${PATH}:#{matlab_dir}:#{matlab_dir}/v91/bin"
-  puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
-  file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+  puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin"
+  file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin"
+  puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+  file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
   #puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
   #file.puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
   puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
@@ -107,14 +107,16 @@ end
 puts ("compile finished")
 
 $stdout.sync = true
-puts ("File listing:")
+#puts ("File listing:")
+
 #puts Dir['**/*.*']
 #puts Dir['**/*.jar']
-require 'find'
+
+#require 'find'
 #Find.find('/') { |f| puts File.absolute_path(f) }
 #Find.find('.') { |f| puts File.absolute_path(f) }
 #Find.find('.') { |f| puts File.absolute_path(f) if File.directory?(f) }
-Find.find("#{build_dir}/.mcr") { |f| puts File.absolute_path(f) }
+#Find.find("#{build_dir}/.mcr") { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack') { |f| puts File.absolute_path(f) }
 #Find.find('../buildpacks/java-buildpack/lib/mcr') { |f| puts File.absolute_path(f) }
 
