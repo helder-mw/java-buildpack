@@ -88,12 +88,13 @@ puts ("MATLAB install finished")
 
 
 # Setting environment variables in .profile.d script (sourced at dyno startup)
-profile_d_dir = "#{build_dir}/.profile.d"
-profile_d_dir_cmd = "mkdir #{profile_d_dir}"
-puts ">>> system: #{profile_d_dir_cmd}"
-system(profile_d_dir_cmd)
+#profile_d_dir = "#{build_dir}/.profile.d"
+#profile_d_dir_cmd = "mkdir #{profile_d_dir}"
+#puts ">>> system: #{profile_d_dir_cmd}"
+#system(profile_d_dir_cmd)
 
-File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
+#File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
+File.open("#{build_dir}/.profile", "w") do |file|
   puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
   file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
   puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
@@ -103,7 +104,7 @@ File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
   puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
   file.puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
 end
-system("chmod 755 #{profile_d_dir}/matlab.sh")
+#system("chmod 755 #{profile_d_dir}/matlab.sh")
 
 puts ("compile finished")
 
