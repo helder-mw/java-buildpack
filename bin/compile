@@ -94,23 +94,24 @@ puts ("MATLAB install finished")
 #system(profile_d_dir_cmd)
 
 #File.open("#{profile_d_dir}/matlab.sh", "w") do |file|
-File.open("#{build_dir}/.profile", "w") do |file|
-  puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
-  file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
-  puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
-  file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
-  #puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
-  #file.puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
-  puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
-  file.puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
-end
+#File.open("#{build_dir}/.profile", "w") do |file|
+#  puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
+#  file.puts "export PATH=${PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/bin:#{matlab_dir}/v91/runtime/glnxa64"
+#  puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+#  file.puts "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{matlab_dir}/xLibs:#{matlab_dir}/v91/runtime/glnxa64:#{matlab_dir}/v91/bin/glnxa64:#{matlab_dir}/v91/sys/os/glnxa64:"
+#  #puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
+#  #file.puts "export CLASSPATH=${CLASSPATH}:#{matlab_dir}/v91/toolbox/javabuilder/jar/javabuilder.jar"
+#  puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
+#  file.puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
+#end
 #system("chmod 755 #{profile_d_dir}/matlab.sh")
 
 puts ("compile finished")
 
 $stdout.sync = true
-#puts ("File listing:")
+puts ("File listing:")
 
+puts Dir["#{build_dir}/*.*"]
 #puts Dir['**/*.*']
 #puts Dir['**/*.jar']
 
@@ -136,5 +137,5 @@ $stdout.sync = true
 #puts ("ls -l /tmp/staged/app/.profile.d/matlab.sh")
 #system("ls -l /tmp/staged/app/.profile.d/matlab.sh")
 
-puts ("java -XshowSettings:properties")
-system("java -XshowSettings:properties")
+#puts ("java -XshowSettings:properties")
+#system("java -XshowSettings:properties")
