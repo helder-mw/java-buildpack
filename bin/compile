@@ -105,13 +105,14 @@ File.open("#{build_dir}/.profile", "w") do |file|
   file.puts "export CLASSPATH=${CLASSPATH}:#{build_dir}/WEB-INF/classes/lib/javabuilder.jar:#{build_dir}/WEB-INF/classes/lib/MagicSquare.jar"
 end
 #system("chmod 755 #{profile_d_dir}/matlab.sh")
+system("ls -l #{build_dir}/.profile")
 
 puts ("compile finished")
 
 $stdout.sync = true
-puts ("File listing:")
+#puts ("File listing:")
 
-puts Dir["#{build_dir}/*.*"]
+#puts Dir["#{build_dir}/*.*"]
 #puts Dir['**/*.*']
 #puts Dir['**/*.jar']
 
@@ -139,3 +140,6 @@ puts Dir["#{build_dir}/*.*"]
 
 #puts ("java -XshowSettings:properties")
 #system("java -XshowSettings:properties")
+
+puts ("echo $LD_LIBRARY_PATH")
+system("echo $LD_LIBRARY_PATH")
