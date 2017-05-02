@@ -141,5 +141,5 @@ $stdout.sync = true
 #puts ("java -XshowSettings:properties")
 #system("java -XshowSettings:properties")
 
-puts ("echo $LD_LIBRARY_PATH")
-system("echo $LD_LIBRARY_PATH")
+puts ("echo LD_LIBRARY_PATH = $LD_LIBRARY_PATH")
+system("echo LD_LIBRARY_PATH = $LD_LIBRARY_PATH")
